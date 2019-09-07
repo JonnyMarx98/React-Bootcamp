@@ -1,0 +1,13 @@
+.Slot {
+    background: lightcoral;
+    border: 2px solid black;
+}
+
+.Slot-win {
+    color: white;
+    background: lightgreen;
+}
+.Slot-lose {
+    color: white;
+    background: red;
+}
