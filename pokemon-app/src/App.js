@@ -1,15 +1,13 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-import Dog from './Dog'
+import Pokedex from './Pokedex';
 
 function App() {
   return (
     <div className="App">
-      <Dog />
-      <div>NOT A DOG </div>
+      <Pokedex />
     </div>
-    
   );
 }
 
