@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/React-Bootcamp/static/css/main.23d849b4.chunk.css",
+    "main.js": "/React-Bootcamp/static/js/main.57d16ee4.chunk.js",
+    "main.js.map": "/React-Bootcamp/static/js/main.57d16ee4.chunk.js.map",
+    "runtime~main.js": "/React-Bootcamp/static/js/runtime~main.42256f52.js",
+    "runtime~main.js.map": "/React-Bootcamp/static/js/runtime~main.42256f52.js.map",
+    "static/js/2.b54649ab.chunk.js": "/React-Bootcamp/static/js/2.b54649ab.chunk.js",
+    "static/js/2.b54649ab.chunk.js.map": "/React-Bootcamp/static/js/2.b54649ab.chunk.js.map",
+    "index.html": "/React-Bootcamp/index.html",
+    "precache-manifest.b2228629c46c62a99eb24fc998e27c71.js": "/React-Bootcamp/precache-manifest.b2228629c46c62a99eb24fc998e27c71.js",
+    "service-worker.js": "/React-Bootcamp/service-worker.js",
+    "static/css/main.23d849b4.chunk.css.map": "/React-Bootcamp/static/css/main.23d849b4.chunk.css.map",
+    "static/media/logo.svg": "/React-Bootcamp/static/media/logo.5d5d9eef.svg"
+  }
+}
