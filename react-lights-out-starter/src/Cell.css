@@ -1,0 +1,16 @@
+.Cell {
+  height: 100px;
+  width: 100px;
+  background-color:#263238;
+  border-radius: 2px;
+  transition: background-color 0.8s ease;
+}
+
+.Cell:hover{
+  /* transform: scale(1.25); */
+  opacity: 0.75;
+}
+
+.Cell-lit {
+  background-color: #00bcd4;
+}

@@ -1,10 +1,11 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import './Coin.css'
 
 class Coin extends Component{
     render(){
         return(
-            <div>
-                <p>Coin</p>
+            <div className="Coin">
+                <img src={this.props.img}></img>
             </div>
         )
     }
