@@ -105,8 +105,8 @@ class Board extends Component {
     if(this.state.hasWon){
       return (
         <div>
-          <div className="neon">YOU</div>
-          <div className="flux">WIN!</div>
+          <div className="neon">I LOVE YOU</div>
+          <div className="flux">JAFFA CAKES!</div>
         </div>
       )
     }
