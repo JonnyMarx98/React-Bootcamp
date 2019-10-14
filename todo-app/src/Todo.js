@@ -40,6 +40,12 @@ class Todo extends Component{
         })
     }
 
+    componentDidUpdate(prevProps, prevState){
+        console.log("IN Todo COMPONENT DID UPDATE");
+        console.log(prevProps.task);
+        console.log(this.props.task);
+    }
+
     render(){
         let result;
         if(this.state.isEditing){
