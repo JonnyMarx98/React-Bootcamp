@@ -58,11 +58,11 @@ class TodoList extends Component {
         ));
     }
 
-    componentDidUpdate(prevProps, prevState){
-        console.log("IN COMPONENT DID UPDATE");
-        console.log(prevState.items);
-        console.log(this.state.items);
-    }
+    // componentDidUpdate(prevProps, prevState){
+    //     console.log("IN COMPONENT DID UPDATE");
+    //     console.log(prevState.items);
+    //     console.log(this.state.items);
+    // }
 
     render(){
         let items = this.state.items.map(item => (

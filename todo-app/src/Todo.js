@@ -40,10 +40,14 @@ class Todo extends Component{
         })
     }
 
-    componentDidUpdate(prevProps, prevState){
-        console.log("IN Todo COMPONENT DID UPDATE");
-        console.log(prevProps.task);
-        console.log(this.props.task);
+    // componentDidUpdate(prevProps, prevState){
+    //     console.log("IN Todo COMPONENT DID UPDATE");
+    //     console.log(prevProps.task);
+    //     console.log(this.props.task);
+    // }
+
+    componentWillUnmount(){
+        console.log("I have been deleted goodbye cruel world!")
     }
 
     render(){
