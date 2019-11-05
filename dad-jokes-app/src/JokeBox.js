@@ -13,17 +13,26 @@ class JokeBox extends Component {
         super(props)
     
         this.state = {
-            jokes: []
+            jokes: JSON.parse(window.localStorage.getItem('jokes') || "[]"),
+            loading: false
         }
+
+        this.seenJokes = new Set(this.state.jokes.map(j => j.text));
+        console.log(this.seenJokes)
         this.getNewJokes = this.getNewJokes.bind(this);
         this.handleVote = this.handleVote.bind(this);
+        this.handleClick = this.handleClick.bind(this);
     }
     
-    async componentDidMount(){
-        this.getNewJokes();
+    componentDidMount(){
+        if(this.state.jokes.length === 0){
+            this.setState({loading: true}, this.getNewJokes);
+        }
+        
     }
 
     async getNewJokes(){
+        try {
         // Load jokes
         let jokes = [];
         while(jokes.length <= this.props.numJokesToGet){
@@ -34,11 +43,29 @@ class JokeBox extends Component {
                 }
             };
             let jokeRes = await axios.get(url, config);
-            jokes.push({id: uuid(), text: jokeRes.data.joke, votes: 0});
+            if(!this.seenJokes.has(jokeRes.data.joke)){
+                jokes.push({id: uuid(), text: jokeRes.data.joke, votes: 0});
+            } else {
+                console.log("Duplicate joke found");
+                console.log(jokeRes.data.joke);
+            }
         }
         this.setState(st => ({
-            jokes: [...st.jokes, ...jokes]
-        }))
+            jokes: [...st.jokes, ...jokes],
+            loading: false
+        }),
+        () => window.localStorage.setItem(
+            "jokes", JSON.stringify(this.state.jokes)
+            )
+        );
+        } catch(e){
+            alert(e);
+            this.setState({loading: false})
+        }
+    }
+
+    handleClick(){
+        this.setState({loading: true}, this.getNewJokes);
     }
 
     handleVote(id, delta){
@@ -46,11 +73,16 @@ class JokeBox extends Component {
             jokes: st.jokes.map(j => 
                 j.id === id ? {...j, votes: j.votes + delta} : j 
                 )
-        }))
+        }),
+        () => window.localStorage.setItem(
+            "jokes", JSON.stringify(this.state.jokes)
+            )
+        );
     }
 
     render(){
-        let jokes = this.state.jokes.map(j => (
+        let sortedJokes = this.state.jokes.sort((a,b) => b.votes - a.votes);
+        let jokes = sortedJokes.map(j => (
             <Joke
             key={j.id}
             text={j.text}
@@ -59,17 +91,24 @@ class JokeBox extends Component {
             downvote={() => this.handleVote(j.id, -1)}
             />
         ))
+
+        if(this.state.loading) {
+            return (
+                <div className="JokeBox-spinner">
+                    <i className="far fa-8x fa-laugh fa-spin"/>
+                    <h1 className='JokeBox-title'>Loading hilarious jokes...</h1>
+                </div>
+            )
+        }
         return(
             <div className='JokeBox'>
                 <div className='JokeBox-sidebar'>
                     <h1 className='JokeBox-title'>
-                        <span>Dad</span> Jokes 🤣
+                        <span>Dad</span> Jokes
                     </h1>
-                    <button onClick={this.getNewJokes}>New Jokes</button>
+                    <button onClick={this.handleClick} className='JokeBox-getmore'>More Jokes</button>
                     <img src='https://assets.dryicons.com/uploads/icon/svg/8927/0eb14c71-38f2-433a-bfc8-23d9c99b3647.svg'></img>
                 </div>
-                
-                {/* <button>New Jokes</button> */}
                 <div className='JokeBox-jokes'>
                     {jokes}
                 </div>

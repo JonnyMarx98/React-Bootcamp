@@ -42,3 +42,35 @@
     overflow: scroll;
     box-shadow: 0 19px 38px rgba(0,0,0,0.3), 0 15px 12px rgba(0,0,0,0.1);
 }
+
+.JokeBox-spinner {
+    color: white;
+    text-align: center;
+}
+
+.JokeBox-getmore {
+    font-size: 1rem;
+    width: 50%;
+    border-radius: 2rem;
+    padding: 1rem 2rem;
+    color: white;
+    border: none;
+    font-weight: 500;
+    margin: 2rem;
+    word-spacing: 1rem;
+    cursor: pointer;
+    transition: 0.5s cubic-bezier(0.2,1,0.2,1);
+    box-shadow: 0 19px 38px rgba(0,0,0,0.3), 0 15px 12px rgba(0,0,0,0.1);
+    background: linear-gradient(
+    135deg,
+    rgba(179, 229, 252, 1) 0%,
+    rgba(179, 229, 252, 1) 50%,
+    rgba(240, 98, 146, 1) 50%,
+    rgba(240, 98, 146, 1) 100%
+  );
+}
+
+.JokeBox-getmore:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.25);
+}
