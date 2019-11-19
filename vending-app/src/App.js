@@ -5,23 +5,21 @@ import VendingMachine from './VendingMachine';
 import Jaffa from './Jaffa';
 import Crisps from './Crisps';
 import Coke from './Coke';
+import NavBar from './NavBar';
+import Message from './Message'
 import './App.css';
 
 function App() {
   return (
     <div className="App">
-      <nav className="App-nav">
-        <NavLink exact activeClassName="active-link" to="/">Vending Machine</NavLink>
-        <NavLink exact activeClassName="active-link" to="/jaffa">Jaffa Cakes</NavLink>
-        <NavLink exact activeClassName="active-link" to="/crisps">Crisps</NavLink>
-        <NavLink exact activeClassName="active-link" to="/coke">Coke</NavLink>
-      </nav>
+      <NavBar />
       <Switch>
         <Route exact path='/' component={VendingMachine} />
         <Route exact path='/jaffa' component={() => <Jaffa/>} />
         <Route exact path='/crisps' component={() => <Crisps/>} />
         <Route exact path='/coke' component={() => <Coke/>} />
       </Switch>
+      <Message />
     </div>
   );
 }

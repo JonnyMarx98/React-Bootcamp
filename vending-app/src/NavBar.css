@@ -1,0 +1,17 @@
+.NavBar{
+    display: flex;
+    background-color: rgb(66, 66, 66);
+    padding: 1rem;
+    justify-content: space-around;
+    color: white;
+}
+
+.App .NavBar a {
+    text-decoration: none;
+    color: rgb(148, 148, 148);
+    transition: all 0.5s ease;
+}
+
+.NavBar a.NavBar-active{
+    color:white;
+}
