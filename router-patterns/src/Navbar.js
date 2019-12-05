@@ -9,16 +9,21 @@ class Navbar extends Component {
              
         }
         this.handleLogin = this.handleLogin.bind(this);
+        this.handleBack = this.handleBack.bind(this);
     }
     handleLogin(){
         alert("LOGGED IN");
         this.props.history.push("/food/fish");
+    }
+    handleBack(){
+        this.props.history.goBack();
     }
 
     render(){
         return(
             <div>
                 <button onClick={this.handleLogin}>Log In</button>
+                <button onClick={this.handleBack}>Back</button>
             </div>
         )
     }
