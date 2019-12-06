@@ -17,7 +17,8 @@ class App extends Component {
         facts: [
           "Whiskey loves eating popcorn.",
           "Whiskey is a terrible guard dog.",
-          "Whiskey wants to cuddle with you!"
+          "Whiskey wants to cuddle with you!",
+          "Whiskey loves jaffa cakes!"
         ]
       },
       {
@@ -44,11 +45,19 @@ class App extends Component {
   }
 
   render() {
+    const getDog = props => {
+      let name = props.match.params.name;
+      let currentDog = this.props.dogs.find(
+        dog => dog.name.toLowerCase() === name.toLowerCase()
+      );
+      return <DogDetails {...props} dog={currentDog} />;
+
+     }
   return (
     <div className="App">
       <Switch>
-        <Route exact to="/dogs" render={() => <Dogs dogs={this.props.dogs} />}/>
-        <Route exact to="/dogs/:name" render={() => <DogDetails dogs={this.props.dogs} />}/>
+        <Route exact path="/dogs" render={() => <Dogs dogs={this.props.dogs} />}/>
+        <Route exact path="/dogs/:name" render={getDog}/>
       </Switch>
     </div>
   );
