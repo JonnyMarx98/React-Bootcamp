@@ -1,9 +1,6 @@
-// import React from 'react';
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import { Route, Switch } from 'react-router-dom';
-import Dogs from './Dogs'
-import DogDetails from './DogDetails';
+import Navbar from './Navbar';
+import Routes from './Routes';
 import './App.css';
 
 class App extends Component {
@@ -45,23 +42,16 @@ class App extends Component {
   }
 
   render() {
-    const getDog = props => {
-      let name = props.match.params.name;
-      let currentDog = this.props.dogs.find(
-        dog => dog.name.toLowerCase() === name.toLowerCase()
-      );
-      return <DogDetails {...props} dog={currentDog} />;
-
-     }
-  return (
-    <div className="App">
-      <Switch>
-        <Route exact path="/dogs" render={() => <Dogs dogs={this.props.dogs} />}/>
-        <Route exact path="/dogs/:name" render={getDog}/>
-      </Switch>
-    </div>
-  );
-  }
+    return (
+      <div className="App">
+        <Navbar dogs={this.props.dogs}/>
+        <div className="container">
+          <Routes dogs={this.props.dogs}/>
+        </div>
+        
+      </div>
+    );
+    }
 }
 
 
