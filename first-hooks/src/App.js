@@ -4,13 +4,17 @@ import './App.css';
 import CounterHook from './CounterHook';
 import Toggler from './Toggler';
 import SimpleHooksForm from './SimpleHooksForm';
+import Clicker from './Clicker';
+import SWMovies from './SWMovies';
 
 function App() {
   return (
     <div className="App">
-      <CounterHook/>
+      {/* <CounterHook/>
       <Toggler/>
-      <SimpleHooksForm/>
+      <SimpleHooksForm/> */}
+      <Clicker/>
+      <SWMovies/>
     </div>
   );
 }
