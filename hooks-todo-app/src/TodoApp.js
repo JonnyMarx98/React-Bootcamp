@@ -10,7 +10,7 @@ import TodoForm from './TodoForm';
 export default function TodoApp() {
   const initTodos = [
     { id: 1, task: "win 50 f1 races", completed: false},
-    { id: 2, task: "make gainz", completed: false},
+    { id: 2, task: "make gainz", completed: true},
     { id: 3, task: "eat loads of food", completed: false}
   ]
   const [todos, setTodos] = useState(initTodos);
@@ -34,8 +34,12 @@ export default function TodoApp() {
           <Typography color='inherit'>Hooks Todos ya</Typography>
         </Toolbar>
       </AppBar>
-      <TodoForm addTodo={addTodo}/>
-      <TodoList todos={todos} />
+      <Grid container justify="center">
+        <Grid item xs={11} md={8} lg={4}>
+          <TodoForm addTodo={addTodo}/>
+          <TodoList todos={todos} />
+        </Grid> 
+      </Grid>
     </Paper>
   )
 }
