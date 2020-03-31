@@ -11,4 +11,3 @@ export default initVal => {
 
   return [value, handleChange, reset];
 }
-// h
