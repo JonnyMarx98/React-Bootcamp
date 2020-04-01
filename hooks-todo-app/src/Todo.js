@@ -13,7 +13,7 @@ import ListItemSecondaryAction from '@material-ui/core/ListItemSecondaryAction';
 export default function Todo({task, completed, removeTodo, toggleTodo, editTodo, id}) {
   const [isEditing, toggle] = useToggleState(false);
   return (
-    <ListItem style={{listStyleType: "none"}}>
+    <ListItem style={{listStyleType: "none", height:"64px"}}>
       {isEditing ? <EditTodoForm id={id} editTodo={editTodo} task={task} toggleEdit={toggle}/> :
       <> 
       <Checkbox tabIndex={-1} checked={completed} onClick={() => toggleTodo(id)}/>
