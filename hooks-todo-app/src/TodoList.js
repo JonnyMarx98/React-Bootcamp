@@ -5,7 +5,7 @@ import List from '@material-ui/core/List';
 import Todo from './Todo';
 
 export default function TodoList({todos, removeTodo, toggleTodo, editTodo}) {
-  return (
+  if (todos.length) return (
     <Paper>
       <List>
         {todos.map((todo, i) => (
@@ -25,4 +25,5 @@ export default function TodoList({todos, removeTodo, toggleTodo, editTodo}) {
       </List>
     </Paper>
   )
+  return null;
 }
