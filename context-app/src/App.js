@@ -1,5 +1,4 @@
 import React from 'react';
-import logo from './logo.svg';
 import Navbar from "./Navbar";
 import Form from './Form';
 import PageContent from './PageContent';
