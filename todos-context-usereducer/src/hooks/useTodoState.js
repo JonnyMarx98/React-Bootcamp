@@ -12,7 +12,7 @@ export default initialTodos => {
       //filter out removed todo
       const updatedTodos = todos.filter(todo => todo.id !== todoId);
       //call setTodos with new todos array
-      setTodos(updatedTodos);
+      setTodos(updatedTodos); 
     },
     toggleTodo: todoId => {
       const updatedTodos = todos.map(todo =>
