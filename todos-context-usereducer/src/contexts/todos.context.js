@@ -2,7 +2,6 @@
 // todos methods
 import React, {createContext, useReducer} from 'react';
 import todoReducer from '../reducers/todo.reducer';
-import useTodoState from '../hooks/useTodoState';
 
 const defaultTodos = [
   {id: 1, task: "eat bat", completed: true},
